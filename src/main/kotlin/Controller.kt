@@ -14,6 +14,7 @@ class Controller(
     var model: Model
     ) {
 
+    //DLETE/LOAD Controllers
     fun delete() {
         model.delete()
     }
@@ -51,6 +52,7 @@ class Controller(
         }
     }
 
+    //SAVE/COPY/PASTE/CUT  controllors
     fun save(file: File) {
         file.bufferedWriter().use {e ->
             for(i in 0 .. model.listSize-1  ){
@@ -133,11 +135,6 @@ class Controller(
         model.tslineCo = line
     }
 
-
-
-//    fun setPicker(fill: &ColorPicker, line: &ColorPicker) {
-//
-//    }
 
     fun stClick(x: Double, y: Double, gc: GraphicsContext) {
         model.stClick(x, y, gc)

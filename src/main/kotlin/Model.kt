@@ -46,6 +46,7 @@ class Model {
 
 
 
+    //add the shape and coordingate
     var theShape = -1;                  //0: invalid shape; 0erase 1circle 2rec 3line1
     private var tempShapeLine = Line(0.0 , 0.0, 0.0, 0.0)
     private var tempShapeCir = Circle(0.0,0.0,0.0)
@@ -67,7 +68,7 @@ class Model {
 
 
 
-
+    //setup default fill and line colors
     var fillCo = Color.GREY
     var lineCo = Color.BLACK
 
@@ -86,6 +87,7 @@ class Model {
         view.updateView()
     }
 
+    //update the colors fill
     fun storeCp2() {
         if (type2 == 2) {
             xl = displayList[tempIndex].xl
@@ -133,6 +135,7 @@ class Model {
         }
     }
 
+    //update the colors line
     fun storeCp() {
         if (type2 == 2) {
             xl = displayList[tempIndex].xl
@@ -180,6 +183,8 @@ class Model {
         }
     }
 
+
+    //implement all the Cp functions
     fun updateCp() {
         if (type2 == 2) {
             cpLine = Line(xl, yl, xr, yr)
@@ -277,7 +282,7 @@ class Model {
     }
 
 
-
+    //implement all the drag/draw handlers
     fun updategraph(x: Double, y: Double, gc: GraphicsContext) {
         print("${lineThick} |||| ${lineStyle} \n")
         if (theShape == 0) {
@@ -332,14 +337,6 @@ class Model {
         }
     }
 
-//    fun stMove(x: Double, y: Double, gc: GraphicsContext) {
-//        if(ifPress) {
-//            displayList.removeAt(listSize - 1)
-//            listSize--
-//            updategraph(x, y, gc)
-//        }
-//    }
-
     fun stRelease(x: Double, y: Double, gc: GraphicsContext) {
         if(ifPress) {
             ifPress = false
@@ -356,7 +353,7 @@ class Model {
         simpleRedraw(gcP)
     }
 
-
+    //clear functions to clear effects of the tool bars
     fun clearselect() {
         if (tempIndex >= 0) {
             print("clearselect\n")
@@ -365,7 +362,6 @@ class Model {
         }
         simpleRedraw(gcP)
     }
-
     fun clearStyleB() {
         //print("collllllllllllllaaaaaa: ${line2.background.fills}\n")
        line2.setStyle("-fx-background-color: LightGrey; ")
@@ -380,7 +376,6 @@ class Model {
         thickline.setStyle("-fx-background-color: LightGrey; ")
     }
 
-
     fun delete() {
         if ( theShape == 0) {
             if(tempIndex >= 0) {
@@ -391,6 +386,8 @@ class Model {
             }
         }
     }
+
+    //ss
 
     fun stClick(x: Double, y: Double, gc: GraphicsContext) {
         clearselect()
@@ -468,6 +465,7 @@ class Model {
         }
     }
 
+    //
     fun stPress(x: Double, y: Double, gc: GraphicsContext) {
         pressX = x
         pressY = y
@@ -502,8 +500,6 @@ class Model {
         }
         ifPress = true
     }
-
-
     fun setfillCo(bt: ColorPicker) {
         fillCo = bt.getValue()
         if (tempIndex >= 0) {
@@ -513,7 +509,6 @@ class Model {
             simpleRedraw(gcP)
         }
     }
-
     fun setlineCo(bt: ColorPicker) {
         lineCo = bt.getValue()
         if (tempIndex >= 0) {
@@ -527,8 +522,6 @@ class Model {
 
 
 
-
-    //endregion
 
     // simple accessor method to fetch the current state
     // of the data in the model, just a counter

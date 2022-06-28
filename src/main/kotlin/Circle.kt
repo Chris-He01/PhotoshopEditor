@@ -9,10 +9,6 @@ class Circle(
 ): Shape() {
     open var xori = x
     open var yori = y
-//    open var type = 1
-//
-//    var theType: Int = 1
-//        get () = type
 
 
     override fun changexy(xc:Double, yc: Double) {

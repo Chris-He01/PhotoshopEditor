@@ -82,10 +82,10 @@ class Main : Application() {
         val viewBoard = View2(model, controller)
         val fillTools = View3(model, controller)
         val leftVbox = HBox(viewTools, fillTools)
+
+
         //vboxTools.children.add(viewTools) // top-viewed
         scrollPane.setContent(viewBoard)
-
-
         //universal path data
         var selectedPath = "${System.getProperty("user.dir")}/test/"
         var absPath = "${System.getProperty("user.dir")}/test/"
@@ -96,14 +96,13 @@ class Main : Application() {
         val notreadableText = Text("File cann t be read")
         val notSupportText = Text("File cannot be read")
         val border = BorderPane()
-//        border.setMaxSize(640.0, 480.0)
-//        border.setMinSize(1920.0, 1440.0)
         border.top = vbox
         border.left = viewTools
         border.center = scrollPane
         border.left.setStyle("-fx-background-color: grey")
 
 
+        // MOUSE/KEYBORAD HANDLERS
         var filechoose = FileChooser()
         var file: File
         filechoose.extensionFilters.add(ExtensionFilter("txt", "*.txt"))
@@ -154,92 +153,12 @@ class Main : Application() {
 
         var ifShowHidden = false
 
-//        //implement button delete
-//        var updateButton = Button("updateButton")
-//        menuSave.setOnAction {
-//            val alertCheck = Alert(Alert.AlertType.CONFIRMATION)
-//            alertCheck.setTitle("Confirmation Dialog")
-//            alertCheck.setContentText("Are you sure to delete?")
-//            var answer = alertCheck.showAndWait()
-//
-//            if (answer.get() == ButtonType.OK) {
-//                if (!(selectedPath == absPath)) {
-//                    //print("deleting: ${selectedPath} \n")
-//                    File(selectedPath).inputStream().close()
-//                    val success = File(selectedPath).delete()
-//                    //print("${success}\n")
-//                    updateButton.fire()
-//                }
-//                else {
-//                    selectedPath = absPath
-//                    updateButton.fire()
-//                }
-//            }
-//        }
-
-//        //implement button rename
-//        var nameAsking = TextInputDialog("")
-//        nameAsking.setHeaderText("enter the new name")
-//        var newName = "errorName"
-//        menuLoad.setOnAction {
-//            if (selectedPath == absPath) {
-//                val alertCheck = Alert(Alert.AlertType.CONFIRMATION)
-//                alertCheck.setTitle("ERROR Dialog")
-//                alertCheck.setContentText("ERROR: please select an item")
-//                alertCheck.showAndWait()
-//            } else {
-//                val result = nameAsking.showAndWait()
-//                if (result.isPresent) {
-//                    newName = nameAsking.getEditor().getText()
-//                    print("${File(selectedPath).name} ------> ${newName}\n")
-//                    var ifRenameSuccess = File(selectedPath).renameTo(File(absPath + newName))
-//                    if (!ifRenameSuccess) {
-//                        val alertCheck = Alert(Alert.AlertType.CONFIRMATION)
-//                        alertCheck.setTitle("ERROR Dialog")
-//                        alertCheck.setContentText("ERROR: the new name is invalid")
-//                        alertCheck.showAndWait()
-//                        updateButton.fire()
-//                    } else {
-//                        selectedPath = absPath
-//                        updateButton.fire()
-//                    }
-//                }
-//            }
-//        }
-
-
-
-
-
-
-
-
-
-
-
-
-
         //end of implementing button click features*******************************************************************************
 
 
 
         // CREATE AND SHOW SCENE
         val scene = Scene(border, 800.0, 600.0)
-//        val sceneHandler1keyBack =
-//            EventHandler { e: KeyEvent ->
-//                if (e.getCode().equals(KeyCode.DELETE) || e.getCode().equals(KeyCode.BACK_SPACE)) {
-//                    menuLoad.fire()
-//                    //print("delete\n")
-//                }
-//            }
-//        val sceneHandler1keyEnter =
-//            EventHandler { e: KeyEvent ->
-//                if (e.getCode().equals(KeyCode.ENTER)) {
-//                    menuLoad.fire()
-//                }
-//            }
-//        scene.addEventHandler(KeyEvent.ANY , sceneHandler1keyBack)
-//        scene.addEventHandler(KeyEvent.ANY , sceneHandler1keyEnter)
         stage.minHeight = 480.0
         stage.maxHeight = 1440.0
         stage.minWidth = 640.0

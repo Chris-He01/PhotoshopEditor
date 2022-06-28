@@ -23,18 +23,11 @@ internal class View2(
     // update to display the new value
     override fun updateView() {
         println("View2: updateView")
-
-        // display an 'X' for each counter value
-//        val s = StringBuilder()
-//        for (i in 0 until model.counterValue) s.append("X")
-//        text.text = s.toString()
     }
 
     init {
-        // set textfield properties
-//        text.isWrapText = true
-//        text.isEditable = false
 
+        //setting the main drawing page
         val root = Group()
         val scene = Scene(root, 800.0, 800.0, Color.WHITE)
 
@@ -72,21 +65,19 @@ internal class View2(
             }
         }
 
+        //init the vanvas and gc
         controller.setGc(gc)
-
         root.children.add(canvas)
-
         var scrollPane = ScrollPane()
-
         scrollPane.setContent(root)
 
 
 
 
-
+        // add label scrollPane to the view2
         this.children.add(scrollPane)
 
-        // add label widget to the pane
+
 
         // register with the model when we're ready to start receiving data
         model.addView(this)

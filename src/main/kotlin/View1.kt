@@ -55,6 +55,7 @@ internal class View1(
     }
 
     init {
+        //create the tools
         buttonSelect.setGraphic( ImageView(javafx.scene.image.Image("${System.getProperty("user.dir")}/test/button/cursor.png", 20.0, 20.0, true, true)))
         bCircle.setGraphic( ImageView(javafx.scene.image.Image("${System.getProperty("user.dir")}/test/button/dry-clean.png", 20.0, 20.0, true, true)))
         bRec.setGraphic( ImageView(javafx.scene.image.Image("${System.getProperty("user.dir")}/test/button/rectangle.png", 20.0, 20.0, true, true)))
@@ -67,24 +68,9 @@ internal class View1(
          line1.setGraphic( ImageView(javafx.scene.image.Image("${System.getProperty("user.dir")}/test/button/line.png", 20.0, 20.0, true, true)))
          line2.setGraphic( ImageView(javafx.scene.image.Image("${System.getProperty("user.dir")}/test/button/line2.png", 20.0, 20.0, true, true)))
          line3.setGraphic( ImageView(javafx.scene.image.Image("${System.getProperty("user.dir")}/test/button/line3.png", 20.0, 20.0, true, true)))
-        //fillCo.setGraphic( ImageView(javafx.scene.image.Image("${System.getProperty("user.dir")}/test/button/paint-bucket.png", 20.0, 20.0, true, true)))
-       // lineCo.setGraphic( ImageView(javafx.scene.image.Image("${System.getProperty("user.dir")}/test/button/paint-bucket.png", 20.0, 20.0, true, true)))
-        // setup the view (i.e. group+widget)
-        //fillCo.setStyle("-fx-background-color: #4343f3; -fx-border-color: BLACK; -fx-border-width: 1px")
-        //lineCo.setStyle("-fx-background-color: #afdcaf; -fx-border-color: BLACK; -fx-border-width: 1px")
         fillCo.setMaxWidth(30.0)
         lineCo.setMaxWidth(30.0)
         this.setStyle("-fx-border-color: grey")
-//        lineCo.setStyle("-fx-text-fill: stroke")
-//        fillCo.setStyle("-fx-text-fill: fill")
-//        lineDia.setTitle("Choose your color")
-//        fillDia.setTitle("Choose your color")
-//        val btok = Button("OK")
-//        val color = ColorPicker(Color.BLACK)
-//        fillPane.add(color, 0, 0)
-//        fillPane.add(btok, 0, 1)
-//        fillPane.add(color, 0, 0)
-//        fillPane.add(btok, 0, 1)
 
 
 
@@ -146,6 +132,7 @@ internal class View1(
 
 
 
+        //lineCollor change function & its auto-update
         lineCo.setOnAction {
             print("lick linco\n")
             controller.setlineCo(lineCo)
@@ -174,9 +161,10 @@ internal class View1(
         this.add(line1, 0, 14)
         this.add(line2, 1, 14)
         this.add(line3, 2, 14)
+
+        //event handler to delete
         this.addEventHandler(KeyEvent.ANY) { e ->
             if (e.getCode().equals(KeyCode.DELETE) || e.getCode().equals(KeyCode.BACK_SPACE)) {
-                print("wuuuuuuuuuu\n")
                 controller.delete()
                 //print("delete\n")
             }
